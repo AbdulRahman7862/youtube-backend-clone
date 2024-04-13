@@ -11,7 +11,14 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json({limit:"20kb"}))
 app.use(express.urlencoded({extended:true, limit:"20kb"}))  //extended allows us to send nested objects
-app.use(expess.static("public"))
+app.use(express.static("public"))
+
+//Router Imports
+
+import userRouter from "./routes/user.routes.js"
+
+//routes declaration
+app.use("/api/v1/users",userRouter)
 
 
 export { app }

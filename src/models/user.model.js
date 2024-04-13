@@ -57,7 +57,6 @@ userSchema.methods.isPasswordValid = async function (password) {
     return await bcrypt.compare(password,this.password);
 }
 
-//JWT Bearer Token
 userSchema.models.generateAccessToken = function(){
     return jwt.sign({
         _id: this._id,
